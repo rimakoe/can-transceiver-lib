@@ -7,7 +7,7 @@ Generates a cpp library from a DBC file using the cantools DBC parser and extend
 
 1. Get the extended generator
 
-        git clone --branch extended_codegen https://github.com/rimakoe/cantools.git
+        git clone --branch extend_codegen https://github.com/rimakoe/cantools.git
 
 1. Install it in your python using 
 
