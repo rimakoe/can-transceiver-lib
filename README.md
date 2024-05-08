@@ -119,7 +119,7 @@ receiver.detach();
 Once you received data from a desired CAN ID, the corresponding callback is called. Fill in your desired actions e.g. update your member variables.
 
 ```
-canlib::callback::rcv::can1::jetson_commands = [&](can1_jetson_commands_t /*frame_encoded*/,                                                   canlib::frame::decoded::can1::jetson_commands_t frame_decoded) {
+canlib::callback::can1::jetson_commands = [&](can1_jetson_commands_t /*frame_encoded*/,                                                   canlib::frame::decoded::can1::jetson_commands_t frame_decoded) {
     RCLCPP_INFO(this->get_logger(), "received jetson_commands: brake ratio = %lf", frame_decoded.jetson_brake_ratio);
     m_brake_ratio = frame_decoded.jetson_brake_ratio;
     };
