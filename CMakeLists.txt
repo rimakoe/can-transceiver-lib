@@ -57,26 +57,6 @@ endif()
 
 message(STATUS "Preparing for processor type: ${CMAKE_SYSTEM_PROCESSOR}")
 
-# Cross compile for arm (STM)
-if(CMAKE_SYSTEM_PROCESSOR STREQUAL arm)
-  set(MCU_FAMILY STM32F4xx)
-  include(${CMAKE_CURRENT_SOURCE_DIR}/../../example_project_cmake/cmake/options_cpu.cmake)
-
-  # Compiler options
-  include(${CMAKE_CURRENT_SOURCE_DIR}/../../example_project_cmake/cmake/options_compiler.cmake)
-  target_compile_options(${PROJECT_NAME} PRIVATE
-      ${OPTIONS_CPU}
-      ${OPTIONS_COMPILER})
-
-  # Linker options
-  include(${CMAKE_CURRENT_SOURCE_DIR}/../../example_project_cmake/cmake/options_linker.cmake)
-  target_link_options(${PROJECT_NAME} PRIVATE
-      $<$<BOOL:${MCU_LINKER_SCRIPT}>:-T${MCU_LINKER_SCRIPT}>
-      ${OPTIONS_CPU}
-      ${OPTIONS_LINKER}
-      )
-endif()
-
 include_directories(include/${PROJECT_NAME})
 include_directories(include)
 
